@@ -4,10 +4,13 @@ x64 injector for windows
 
 ## demo
 
-![demo](old demo.PNG)
+![demo](old%20demo.PNG)
 
 ## credits:
 
 https://github.com/btbd/modmap
+
 https://github.com/capstone-engine/capstone
+
 https://github.com/JustasMasiulis/lazy_importer
+
