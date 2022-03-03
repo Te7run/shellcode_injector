@@ -1,6 +1,6 @@
 # schellcode_injector
 
-POC x64 injector for windows.
+POC x64 injector for windows. For educational purposes only.
 
 ## demo
 
