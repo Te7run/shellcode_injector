@@ -9,15 +9,6 @@
 
 namespace analize {
 
-	size_t make_jmp(uint8_t** out_buffer, uint64_t from, uint64_t to) {
-		uint8_t near_jmp[] = { 0xEB, 0x00 };
-		uint64_t delta = to - from - sizeof(near_jmp);
-		near_jmp[1] = (uint8_t)delta;
-		*out_buffer = (uint8_t*)malloc(sizeof(near_jmp));
-		std::memcpy(*out_buffer, near_jmp, sizeof(near_jmp));
-		return sizeof(near_jmp);
-	}
-
 	bool add_transactions(uint8_t* shellcode, size_t size) {
 		csh handle;
 		cs_insn* inst;
