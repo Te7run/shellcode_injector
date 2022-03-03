@@ -213,56 +213,6 @@ namespace dll_parser {
 			return false;
 		}
 		
-		/*
-		auto import_descriptor = reinterpret_cast<PIMAGE_IMPORT_DESCRIPTOR>(rva_va(nt_headers->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress, nt_headers, image_buffer));
-
-		LPSTR module_name = nullptr;
-		while (module_name = reinterpret_cast<LPSTR>(rva_va(import_descriptor->Name, nt_headers, image_buffer))) {
-
-			const auto module_address = LoadLibraryA(module_name);
-			if (!module_address) {
-				printf("[-] failed to load: %s\n", module_address);
-				return false;
-			}
-
-			auto thunk_data = reinterpret_cast<PIMAGE_THUNK_DATA>(rva_va(import_descriptor->FirstThunk, nt_headers, image_buffer));
-
-			while (thunk_data->u1.AddressOfData)
-			{
-				LPCSTR function_name = nullptr;
-
-				if (thunk_data->u1.Ordinal & IMAGE_ORDINAL_FLAG) {
-					printf("thunk_data address 0x%p import name %s\n", thunk_data->u1.Function, (LPCSTR)(thunk_data->u1.Ordinal & 0xFFFF));
-					function_name = (LPCSTR)(thunk_data->u1.Ordinal & 0xFFFF);
-				}
-				else {
-					auto ibn = reinterpret_cast<PIMAGE_IMPORT_BY_NAME>(rva_va(thunk_data->u1.AddressOfData, nt_headers, image_buffer));
-					printf("thunk_data address 0x%p import name %s\n", thunk_data->u1.Function, (LPCSTR)ibn->Name);
-					function_name = (LPCSTR)ibn->Name;
-				}
-
-				// address to write
-				const auto new_adddress = transalte_data_address(nt_headers->OptionalHeader.ImageBase + thunk_data->u1.Function);
-				if (new_adddress) {
-					
-					const auto real_function_address = GetProcAddress(module_address, function_name);
-					printf("[+] new address 0x%p -> 0x%p\n", new_adddress, real_function_address);
-					memory::write_virtual_memory((void*)new_adddress, (void*)&real_function_address, sizeof(real_function_address));
-				}
-				else {
-					printf("[-] failed to find address\n");
-					//return false;
-				}
-
-				thunk_data++;
-			}
-
-			import_descriptor++;
-		}
-		*/
-
-
-		//return true;
 	}
 
 	bool parse(const char* dll_path, uint8_t** exe_section, size_t* out_size, uint64_t* out_entry_point_relative) {
