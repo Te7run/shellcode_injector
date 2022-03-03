@@ -1,4 +1,4 @@
-# schellcode_injector
+# shellcode_injector
 
 POC x64 injector for windows. For educational purposes only.
 
