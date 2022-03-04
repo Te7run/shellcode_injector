@@ -1,6 +1,10 @@
 # shellcode_injector
 
-POC x64 injector for windows. For educational purposes only.
+POC x64 injector for windows.
+Injector scatters dll's executable section over free rwx pages.
+It places absolute jmps after jcc. Dll must be compiled with clang extension (mcmodel=large and -fno-jump-tables).
+
+For educational purposes only.
 
 ## demo
 
