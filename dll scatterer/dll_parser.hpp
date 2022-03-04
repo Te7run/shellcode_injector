@@ -224,7 +224,7 @@ namespace dll_parser {
 		}
 		const auto size = GetFileSize(file_handle, NULL);
 		if (!size) {
-			printf("[-] invalid file szie\n");
+			printf("[-] invalid file size\n");
 			return false;
 		}
 		// program exits immediately so no "free" needed
