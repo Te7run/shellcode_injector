@@ -10,6 +10,8 @@ For educational purposes only.
 
 ![demo](old%20demo.PNG)
 
+![demo2](demo2.PNG)
+
 ## credits:
 
 https://github.com/btbd/modmap
