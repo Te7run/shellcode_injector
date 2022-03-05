@@ -29,11 +29,12 @@ namespace analize {
 			bool relative_instruction = assembly_utils::is_instruction_relative(cur_inst, x86);
 
 			translater::transactions.push_back({ inst[i].address, inst[i].size, relative_instruction, inst[i].bytes });
+			/*
 			if (relative_instruction) {
-				//printf(" relative instruction");
+				printf(" relative instruction");
 			}
-
-			//printf("\n");
+			printf("\n");
+			*/
 		}
 
 		cs_free(inst, count);
